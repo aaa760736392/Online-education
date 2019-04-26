@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>MyHtml.html</title>
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script type="text/javascript" th:src="@{/js/jquery-1.12.4.min.js}"></script>
+	<script type="text/javascript">
+		$(function(){
+			$.post("json/user",function(data){
+				alert(data);
+			},"json");
+		});
+	
+	</script>
+  </head>
+  
+  <body>
+    This is my HTML page. <br>
+   	<span th:text="${log}">没</span>
+   	<img alt="" th:src="@{img/4.jpg}">
+   	<table>
+   	<tr>
+   		<th>
+   			
+   		</th>
+   		</tr>
+   		
+   
+   	</table>
+   	
+  </body>
+</html>

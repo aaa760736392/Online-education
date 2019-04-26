@@ -1,0 +1,54 @@
+dubbo:
+    registry:
+        address: edas://127.0.0.1:1188
+logging:
+    level:
+        com:
+            first:
+                boot:
+                    idao: debug
+spring:
+    aop:
+        auto: true
+    datasource:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        druid:
+            aop-patterns: com.first.boot.service.*
+            filters: stat,wall
+            initial-size: 5
+            max-active: 20
+            max-open-prepared-statements: -1
+            max-wait: 3000
+            min-evictable-idle-time-millis: 300000
+            min-idle: 5
+            pool-prepared-statements: false
+            stat-view-servlet:
+                allow: 127.0.0.1
+                deny: ''
+                enabled: true
+                login-password: admin
+                login-username: admin
+                reset-enable: false
+                url-pattern: /druid/*
+            time-between-eviction-runs-millis: 60000
+            web-stat-filter:
+                enabled: true
+                exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+                url-pattern: /*
+        password: admin
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://localhost:3306/education?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+        username: root
+    devtools:
+        restart:
+            enabled: true
+    thymeleaf:
+        cache: false
+        encoding: UTF-8
+        mode: HTML5
+        prefix: classpath:/templates/
+        suffix: .html
+        
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true

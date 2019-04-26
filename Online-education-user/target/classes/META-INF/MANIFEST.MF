@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: Online-education-user
+Implementation-Version: 1.0.1-SNAPSHOT
+Built-By: Administrator
+Implementation-Vendor-Id: com.online
+Build-Jdk: 1.8.0_131
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/Online-education/Online-education-user
+Created-By: Maven Integration for Eclipse
+
