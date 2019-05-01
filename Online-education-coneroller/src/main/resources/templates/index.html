@@ -9,28 +9,91 @@
     <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
 	<script type="text/javascript" th:src="@{/js/jquery-1.12.4.min.js}"></script>
 	<script type="text/javascript">
-		$(function(){
-			$.post("json/user",function(data){
-				alert(data);
-			},"json");
-		});
-	
+		
 	</script>
   </head>
   
   <body>
-    This is my HTML page. <br>
-   	<span th:text="${log}">没</span>
-   	<img alt="" th:src="@{img/4.jpg}">
-   	<table>
-   	<tr>
-   		<th>
-   			
-   		</th>
-   		</tr>
-   		
-   
-   	</table>
-   	
+    <form action="/info" method="POST">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" name="names[0].name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="text" name="names[0].ages[0].age"/>
+                                <input type="text" name="names[0].ages[1].age"/>
+                                <input type="text" name="names[0].ages[2].age"/>
+                                <input type="text" name="names[0].ages[3].age"/>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <input type="text" name="names[1].name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="text" name="names[1].ages[0].age"/>
+                                <input type="text" name="names[1].ages[1].age"/>
+                                <input type="text" name="names[1].ages[2].age"/>
+                                <input type="text" name="names[1].ages[3].age"/>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <input type="text" name="names[2].name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="text" name="names[2].ages[0].age"/>
+                                <input type="text" name="names[2].ages[1].age"/>
+                                <input type="text" name="names[2].ages[2].age"/>
+                                <input type="text" name="names[2].ages[3].age"/>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <input type="text" name="names[3].name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="text" name="names[3].ages[0].age"/>
+                                <input type="text" name="names[3].ages[1].age"/>
+                                <input type="text" name="names[3].ages[2].age"/>
+                                <input type="text" name="names[3].ages[3].age"/>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="提交">
+    </form>
   </body>
 </html>

@@ -6,4 +6,14 @@
     <version>1.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>Online-education-teacher</artifactId>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>com.online</groupId>
+	    <artifactId>Online-education-entity</artifactId>
+	    <version>1.0.1-SNAPSHOT</version>
+  	</dependency>
+  
+  </dependencies>
+  
 </project>

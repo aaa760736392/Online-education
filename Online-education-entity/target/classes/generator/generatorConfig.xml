@@ -51,7 +51,7 @@
        <!-- <javaClientGenerator targetPackage="com.zgs.demo.dao" targetProject="src/main/java" type="XMLMAPPER"></javaClientGenerator>
         -->
        <!--  table标签可以有多个，至少一个，tableName指定表名，可以使用_和%通配符，我这里的配置表明匹配所有的表 -->
-        <table tableName="wheel">
+        <table tableName="interview">
         
             <!-- 是否只生成POJO对象 -->
             <property name="modelOnly" value="false"/>
