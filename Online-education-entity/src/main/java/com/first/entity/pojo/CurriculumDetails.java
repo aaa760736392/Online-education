@@ -1,7 +1,6 @@
 package com.first.entity.pojo;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -32,23 +31,13 @@ public class CurriculumDetails implements Serializable {
 	 * 直播时间
 	 */
 	@Column(name = "curriculum_details_time")
-	private Date curriculumDetailsTime;
+	private String curriculumDetailsTime;
 
 	/**
 	 * 课程体系表ID
 	 */
 	@Column(name = "curriculum_details_stytem_id")
 	private Integer curriculumDetailsStytemId;
-
-	private String make;
-
-	public String getMake() {
-		return make;
-	}
-
-	public void setMake(String make) {
-		this.make = make;
-	}
 
 	private static final long serialVersionUID = 1L;
 
@@ -111,7 +100,7 @@ public class CurriculumDetails implements Serializable {
 	 *
 	 * @return curriculum_details_time - 直播时间
 	 */
-	public Date getCurriculumDetailsTime() {
+	public String getCurriculumDetailsTime() {
 		return curriculumDetailsTime;
 	}
 
@@ -120,7 +109,7 @@ public class CurriculumDetails implements Serializable {
 	 *
 	 * @param curriculumDetailsTime 直播时间
 	 */
-	public void setCurriculumDetailsTime(Date curriculumDetailsTime) {
+	public void setCurriculumDetailsTime(String curriculumDetailsTime) {
 		this.curriculumDetailsTime = curriculumDetailsTime;
 	}
 

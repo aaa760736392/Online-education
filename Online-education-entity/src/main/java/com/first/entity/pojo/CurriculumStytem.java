@@ -1,6 +1,8 @@
 package com.first.entity.pojo;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -33,14 +35,24 @@ public class CurriculumStytem implements Serializable {
 	@Column(name = "corriculum_stytem_total_id")
 	private Integer corriculumStytemTotalId;
 
-	private String mark;
+	private Set<CurriculumDetails> setDeta;
 
-	public String getMark() {
-		return mark;
+	public Set<CurriculumDetails> getSetDeta() {
+		return setDeta;
 	}
 
-	public void setMark(String mark) {
-		this.mark = mark;
+	public void setSetDeta(Set<CurriculumDetails> setDeta) {
+		this.setDeta = setDeta;
+	}
+
+	private List<CurriculumDetails> details;
+
+	public List<CurriculumDetails> getDetails() {
+		return details;
+	}
+
+	public void setDetails(List<CurriculumDetails> details) {
+		this.details = details;
 	}
 
 	private static final long serialVersionUID = 1L;

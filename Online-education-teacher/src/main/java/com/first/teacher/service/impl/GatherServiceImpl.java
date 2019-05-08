@@ -28,26 +28,38 @@ public class GatherServiceImpl implements IGatherServiceDao {
 
 	@Override
 	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-	public int addCourse(CurriculumTotal total, List<CurriculumStytem> stytem, List<CurriculumDetails> details) {
-		int addCurriculumTotal = totalDao.addCurriculumTotal(total);// 首先添加课程总表
-		if (addCurriculumTotal > 0) { // 如果课程总表添加成功之后则进行添加体系表
-			CurriculumTotal byTotal = totalDao.getInfoByBean(total); // 首先获取到最后添加的课程总表的ID
-			for (CurriculumStytem curr : stytem) {
-				curr.setCorriculumStytemTotalId(byTotal.getCurriculumId());// 然后把课程总表ID进行添加到课程体系表
-				int addCurriculumStytem = styDao.addCurriculumStytem(curr); // 继续进行添加课程总表
-				if (addCurriculumStytem > 0) { // 判断是否添加成功如果添加成功则根据这个实体进行查询
-					CurriculumStytem infoByBean = styDao.getInfoByBean(curr);
-					for (CurriculumDetails curriculumDetails : details) {
-						String make = curriculumDetails.getMake().substring(0, 1);
-						if (curr.getMark().equals(make)) {
-							curriculumDetails.setCurriculumDetailsStytemId(infoByBean.getCurriculumSystemId());
-							int addCurriculumDetails = detaDao.addCurriculumDetails(curriculumDetails);
-						}
-					}
+	public int addCourse(CurriculumTotal total) {
+
+		try {
+
+			totalDao.addCurriculumTotal(total);
+			CurriculumTotal infoByBean = totalDao.getInfoByBean(total);
+			for (CurriculumStytem stytem : total.getStytems()) {
+				stytem.setCorriculumStytemTotalId(infoByBean.getCurriculumId());
+				styDao.addCurriculumStytem(stytem);
+				CurriculumStytem infoByBean2 = styDao.getInfoByBean(stytem);
+				for (CurriculumDetails details : stytem.getDetails()) {
+					details.setCurriculumDetailsStytemId(infoByBean2.getCurriculumSystemId());
+					detaDao.addCurriculumDetails(details);
 				}
 			}
+			return 1;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
 		}
-		return 0;
+	}
+
+	@Override
+	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	public int delCourse(CurriculumTotal total) {
+		List<CurriculumStytem> stytemList = styDao.getByIdListStytem(total.getCurriculumId());
+		for (CurriculumStytem stytem : stytemList) {
+			detaDao.delEntity(stytem.getCurriculumSystemId());
+		}
+		styDao.delEntity(total.getCurriculumId());
+		int delEntity = totalDao.delEntity(total.getCurriculumId());
+		return delEntity > 0 ? 1 : 0;
 	}
 
 }

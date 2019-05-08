@@ -1,0 +1,68 @@
+
+body{
+	text-align: center;
+}
+#top{
+	margin-top: 25px;
+	width: 60%;
+	height: 45px;
+	background-color: white;
+	text-align: center;
+	float: none;
+}
+#count{
+	width: 100%;
+	height: auto;
+	background-color: #8D8D8D;
+	margin-top: 35px;
+}
+#count_wheel > div{
+	background-color: #8D8D8D;
+}
+#count_wheel > div > div{
+	
+}
+#count_wheel > div > img{
+	border-radius: 30px;
+	width: 1155px;
+	height: 282px;
+}
+#test1{
+	margin: auto;
+	top: 10px;
+	border-radius: 35px;
+}
+#test1>div{
+	border-radius: 35px;
+}
+.buttom{
+	width: 60%;
+	height: 300px;
+	margin: auto;
+	margin-top: 55px;
+	border: 0px solid black;
+	text-align: left;
+}
+
+.commodity{
+	width: 60%;
+	height: auto;
+	margin: auto;
+	margin-top: 55px;
+	border: 0px solid black;
+}
+
+.commodity_content{
+	
+	height: 300px;
+	padding-left: 15px;
+	padding-top: 20px;
+}
+
+.tf{
+	text-align: left;
+}
+.hy{
+	text-align: right;
+}
+

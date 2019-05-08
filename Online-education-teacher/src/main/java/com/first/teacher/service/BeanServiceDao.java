@@ -14,4 +14,9 @@ import java.util.List;
 
 public interface BeanServiceDao<T> {
 	List<T> allEntity(int pageNum, int pageSize, T entity);
+
+	int updEntity(T entity);
+
+	int delEntity(Integer id);
+
 }

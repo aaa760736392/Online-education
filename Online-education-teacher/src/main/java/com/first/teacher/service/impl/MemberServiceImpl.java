@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.first.entity.pojo.Member;
 import com.first.teacher.idao.IMemberDao;
-import com.first.teacher.service.BeanServiceDao;
+import com.first.teacher.service.IMemberServiceDao;
 
 @Service
-public class MemberServiceImpl implements BeanServiceDao<Member> {
+public class MemberServiceImpl implements IMemberServiceDao {
 
 	@Autowired
 	private IMemberDao imeDao;
@@ -21,6 +21,11 @@ public class MemberServiceImpl implements BeanServiceDao<Member> {
 			return imeDao.selectAll();
 		}
 		return imeDao.select(entity);
+	}
+
+	@Override
+	public int updEntity(Member entity) {
+		return 0;
 	}
 
 }

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.first.entity.pojo.CurriculumTotal;
+import com.first.entity.pojo.UserLogin;
 import com.first.teacher.idao.ICurriculumTotalDao;
 import com.first.teacher.service.ICurriculumTotalServiceDao;
 import com.github.pagehelper.Page;
@@ -41,8 +42,29 @@ public class CurriculumTotalServiceImpl implements ICurriculumTotalServiceDao {
 
 	@Override
 	public CurriculumTotal getInfoByBean(CurriculumTotal curr) {
-
 		return totalDao.selectOne(curr);
+	}
+
+	@Override
+	public List<CurriculumTotal> getByUserIdList(UserLogin user) {
+		return totalDao.getByUserIdList(user.getUserLoginId());
+	}
+
+	@Override
+	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	public int updEntity(CurriculumTotal entity) {
+		return totalDao.updateByPrimaryKeySelective(entity);
+	}
+
+	@Override
+	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	public int delEntity(Integer id) {
+		return totalDao.delByIdTotal(id);
+	}
+
+	@Override
+	public List<CurriculumTotal> getById(CurriculumTotal curr) {
+		return totalDao.getCurr(curr);
 	}
 
 }

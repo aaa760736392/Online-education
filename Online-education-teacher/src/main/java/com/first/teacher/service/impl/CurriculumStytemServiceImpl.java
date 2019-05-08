@@ -43,4 +43,21 @@ public class CurriculumStytemServiceImpl implements ICurriculumStytemServiceDao 
 		return styDao.selectOne(stylem);
 	}
 
+	@Override
+	public List<CurriculumStytem> getByIdListStytem(Integer id) {
+		return styDao.getByIdListStytem(id);
+	}
+
+	@Override
+	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	public int updEntity(CurriculumStytem entity) {
+		return styDao.updateByPrimaryKeySelective(entity);
+	}
+
+	@Override
+	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	public int delEntity(Integer id) {
+		return styDao.delByIdStytem(id);
+	}
+
 }

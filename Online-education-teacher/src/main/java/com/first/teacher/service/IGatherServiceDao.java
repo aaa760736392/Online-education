@@ -1,9 +1,5 @@
 package com.first.teacher.service;
 
-import java.util.List;
-
-import com.first.entity.pojo.CurriculumDetails;
-import com.first.entity.pojo.CurriculumStytem;
 import com.first.entity.pojo.CurriculumTotal;
 
 /**
@@ -15,6 +11,7 @@ import com.first.entity.pojo.CurriculumTotal;
 
 public interface IGatherServiceDao {
 
-	int addCourse(CurriculumTotal total, List<CurriculumStytem> stytem, List<CurriculumDetails> details);
+	int addCourse(CurriculumTotal total);
 
+	int delCourse(CurriculumTotal total);
 }

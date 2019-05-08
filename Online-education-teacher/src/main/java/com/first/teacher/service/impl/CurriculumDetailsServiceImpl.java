@@ -40,4 +40,21 @@ public class CurriculumDetailsServiceImpl implements ICurriculumDetailsServiceDa
 		return detaDao.insert(details);
 	}
 
+	@Override
+	public List<CurriculumDetails> getByIdListDetails(Integer id) {
+		return detaDao.getByIdListDetails(id);
+	}
+
+	@Override
+	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	public int updEntity(CurriculumDetails entity) {
+		return detaDao.updateByPrimaryKeySelective(entity);
+	}
+
+	@Override
+	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	public int delEntity(Integer id) {
+		return detaDao.delByIdDetails(id);
+	}
+
 }

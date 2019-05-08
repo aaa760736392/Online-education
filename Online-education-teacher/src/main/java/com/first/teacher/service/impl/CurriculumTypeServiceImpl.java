@@ -16,11 +16,16 @@ public class CurriculumTypeServiceImpl implements ICurriculumTypeServiceDao {
 	private ICurriculumTypeDao icuDao;
 
 	@Override
-	public List<CurriculumType> allEntity(int pageNum, int pageSize, CurriculumType entity) {
+	public List<CurriculumType> allEntity(CurriculumType entity) {
 		if (entity == null) {
 			return icuDao.selectAll();
 		}
 		return icuDao.select(entity);
+	}
+
+	@Override
+	public int updEntity(CurriculumType entity) {
+		return 0;
 	}
 
 }
