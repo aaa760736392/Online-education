@@ -99,13 +99,14 @@
 			$(function() {
 				$("#stytems").click(function() {
 					var val = $("#stytemMake").val();
+					alert(val);
 					var tr = "<tr><td>章节名称</td><td><input type='text' name='stytems[" + (parseInt(val)+1) +
 						"].curriculumSystemName' /></td></tr><tr><td>节数</td>" +
 						"<td><input type='text' name='stytems[" + (parseInt(val)+1) +
 						"].curriculumSystemSequence' /></td></tr><tr class='layui-collapse'>" +
 						"<td colspan='2' class='layui-colla-item'><h2 class='layui-colla-title'>章节详情</h2><div class='layui-colla-content'>" +
-						"<table class='layui-table'><tbody class='layui-table-body'><tr><td>小节名称</td><td><input type='text' name='stytems["+parseInt(val)+"].details[0].curriculumDetailsName' /></td></tr><tr><td>直播时间</td><td><div class='layui-input-inline'><input type='text' class='layui-input' name='stytems["+parseInt(val)+"].details[0].curriculumDetailsTime' placeholder='yyyy-MM-dd HH:mm:ss'></div></td></tr></tbody></table>" +
-						"<button name='details' onclick='detaclick(this)' class='layui-btn layui-btn-fluid'>新增一行</button><input type='hidden' value='1' /></div></td></tr>";
+						"<table class='layui-table'><tbody class='layui-table-body'><tr><td>小节名称</td><td><input type='text' name='stytems["+(parseInt(val)+1)+"].details[0].curriculumDetailsName' /></td></tr><tr><td>直播时间</td><td><div class='layui-input-inline'><input type='text' class='layui-input' name='stytems["+(parseInt(val)+1)+"].details[0].curriculumDetailsTime' placeholder='yyyy-MM-dd HH:mm:ss'></div></td></tr></tbody></table>" +
+						"<button name='details' type='button' onclick='detaclick(this)' class='layui-btn layui-btn-fluid'>新增一行</button><input type='hidden' value='1' /></div></td></tr>";
 					$("#stytem").append(tr);
 					$("#stytemMake").val(parseInt(val) + 1);
 					layui.element.render();

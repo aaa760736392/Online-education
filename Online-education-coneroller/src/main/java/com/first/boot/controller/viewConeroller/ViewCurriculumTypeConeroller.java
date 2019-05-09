@@ -41,4 +41,15 @@ public class ViewCurriculumTypeConeroller {
 		return "managementcourse";
 	}
 
+	@GetMapping("home")
+	public String home() {
+
+		return "home";
+	}
+
+	@GetMapping("iso")
+	public String iso() {
+		return "PersonalCenter";
+	}
+
 }

@@ -1,0 +1,142 @@
+body{
+	background-color: #F2F3F4;
+}
+.container{
+				border:1px solid;
+			}
+			#deng{
+				position: absolute;
+				left: 75%;
+			}
+			#t{
+				position: absolute;
+				left: 84%;
+			}
+			#zhu{
+				position: absolute;
+				left: 80%;
+			}
+			#geren{
+				position: absolute;
+				left: 85%;
+			}
+			#left{
+				position: absolute;
+				background-color: #FDFEFE;
+				left: 13%;
+				border: 0px solid;
+				width:50%;
+				height: 600px;
+				
+			}
+			#left a:hover {
+				color: #1D8348;
+				
+			}
+			.top{
+				width:100%;
+			}
+			.top li{
+				position: absolute;
+				left: 15%;
+			}
+			#zzc{
+				position: absolute;
+				width=20px;
+				height: 50px;
+				margin-top: 20px;
+				margin-left: 15px;
+			}
+			#cao{
+				position: absolute;
+				margin-top:10px;
+				left:10px;
+			}
+			#mianshi{
+				position: absolute;
+				margin-top: 20px;
+				margin-left: 70px;
+			}
+			#guanli{
+				position: absolute;
+				margin-top: 54px;
+				margin-left: 70px;
+			}
+			.content{
+				position: absolute;
+				margin-top: 42%;
+				left: 13%;
+				border: 0px solid;
+				background-color: #FDFEFE;
+				width:50%;
+				height: 600px;
+			}
+			.yang{
+				position: relative;
+				width: 50%;
+				margin-top:10px;
+			}
+			#chow{
+				font-family:sans-serif;
+			}
+			.right{
+				position: absolute;
+				left: 64%;
+				border: 0px solid;
+				background-color: #FDFEFE;
+				width:25%;
+				height:190px;
+			}
+			.right li{
+				display: block;
+				margin-left: 10px;
+				margin-bottom: 5px;
+			}
+			.right a{
+				color: #007DDB;
+			}
+			.right a:hover{
+				color: #0000FF;
+			}
+			.fly-panel{
+				position: absolute;
+				left: 64%;
+				border: 0px solid;
+				background-color: #FDFEFE;
+				margin-top: 15%;
+				width:25%;
+				height:290px;
+			}
+			.fly-panel1{
+				position: absolute;
+				left: 64%;
+				border: 0px solid;
+				margin-top: 42%;
+				width:25%;
+				height:290px;
+				background-color: #FDFEFE;
+			}
+			.Friendship-link{
+				position: absolute;
+				left: 64%;
+				border: 0px solid;
+				background-color: #FDFEFE;
+				margin-top: 62%;
+				width:25%;
+				height:100px;
+			}
+			.Friendship-link a:hover{
+				color: forestgreen;
+			}
+			.buttom{
+				width: 60%;
+				height: 300px;
+				margin: auto;
+				margin-top: 82%;
+				margin-left: 13% ;
+				border: 0px solid black;
+				text-align: left;
+			}
+			#zhi{
+				
+			}

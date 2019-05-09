@@ -1,0 +1,46 @@
+#crumbs{
+	position: absolute;
+	left: 250px;
+	top: 100px;
+}
+body{
+	background-color: #F2F3F4;
+}
+#card{
+	position: absolute;
+	left: 200px;
+	top: 150px;
+	width:73%;
+	background-color: red;
+	text-align: left;
+}
+.lable{
+	margin-left:6px;
+	display:inline;
+	font-size: 12px;
+	padding: 3px;
+}
+#bor{
+	position: absolute;
+	left: 200px;
+	top: 300px;
+	background-color:#FDFEFE ;
+	width: 73%;
+}
+#page{
+	position: relative;
+	
+	left: 80px;
+	top:240px;
+}
+.buttom{
+	width: 60%;
+	height: 300px;
+	margin-top: 55px;
+	border: 0px solid black;
+	text-align: left;
+	position: relative;
+	top:200px;
+	left:10px;
+}
+

@@ -1,0 +1,81 @@
+body{
+				margin:auto;
+				text-align:center;
+			}
+			#topul{
+				background-color:white;
+				color: black;
+				border: 1px solid gainsboro;
+			}
+			ul li #topi{
+				padding-left: 85px;
+				font-size: 24px;
+			}
+			ul li #topa1{
+				padding-left: 50px;
+				color: black;
+				font-size: 16px;
+			}
+			ul li #topa{
+				color: black;	
+				font-size: 16px;
+			}
+			ul li #topInput{
+				border-radius: 10px;
+				background: gainsboro;
+				border: 1px solid gainsboro;
+				margin-left: 35px;
+				height: 20px;
+			}
+			ul li #topImg{
+				margin-left: 50px;
+				border-radius: 25px;
+				border: 1px solid gainsboro;
+			}
+			/* 左侧导航样式 */
+			#leftTopul{
+				margin-top: 50px;
+				margin-left: 100px;
+				border: 1px solid gainsboro;
+				width: 200px;
+			}
+			#leftTopli{
+				border-bottom: 1px dashed gainsboro;
+				text-align: center;
+				border-collapse: collapse;
+			}
+			 #leftBottomul{
+			 	margin-top: 30px;
+				margin-left: 100px;
+				border: 1px solid gainsboro;
+				width: 200px;
+			 }
+			#leftBottomli{
+			 	border-bottom: 1px dashed gainsboro;
+				text-align: center;
+			}
+			 
+			 /* 右中侧导航样式 */
+			#rightCenterDiv{
+				width: 900px;
+				height: 600px;
+				position: absolute;
+				margin-top: -408px;
+				margin-left: 350px;
+				border: 1px solid gainsboro;
+				font-size: 16px;
+			}
+			ul #li{	
+				font-size: 16px;
+			}
+			ol li #span{
+			 	color: gainsboro;
+			 	padding-left: 210px;
+			}
+			ol li #span1{
+				color: gainsboro;
+			}
+			ol li #input{
+			 	width: 300px;
+			 	height: 30px;
+			}

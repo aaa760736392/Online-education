@@ -8,10 +8,39 @@
 		<script th:src="@{layui-v2.4.5/layui/layui.all.js}"></script>
 		<script th:src="@{layui-v2.4.5/layui/layui.js}"></script>
 		<script>
-			function qing(){
-				$("label").css("display","none");
-				$("input").css("display","block");
+			function qing(i){
+				$(i).click(function(){
+					alert($(i).parent().parent().toString());
+					/* 
+					$("this > label").css("display","none");
+					$("input").css("display","block");
+					$("select").css("display","block");
+					 */
+					 //$(".dis").css("display","block");
+				});
 			}
+			$(function() {
+				$("button").on("click",function(){
+					$(this).closest("form").attr("id","usa");
+					//$("input").css("display","block");
+					var input = $("#usa").find("input");
+					for (var i = 0 ; i < input.length;i++){
+						$(input[i]).css("display","block");
+					}
+					var lable = $("#usa").find("label");
+					for (var i = 0; i<lable.length;i++){
+						$(lable[i]).css("display","none");
+					}
+					var dis = $("#usa").find(".dis");
+					for (var i = 0 ; i<dis.length;i++){
+						$(dis[i]).css("display","block");
+					}
+					
+					var vr = $(this).next();
+					
+					$(vr).attr("class","layui-btn layui-btn-normal")
+				});
+			});
 			
 			
 		</script>
@@ -19,74 +48,113 @@
 			input{
 				display: none;
 			}
+			.dis{
+				display: none;
+			}
+			
+			
 		</style>
 	</head>
 	<body>
 		<div class="layui-collapse" lay-accordion="" th:each="currs:${curr}">
+		<form action="updateCurr" method="post" enctype="multipart/form-data">
 			<div class="layui-colla-item">
 				<h2 class="layui-colla-title" th:text="${currs.curriculumName}">Maven项目管理工具</h2>
 				<div class="layui-colla-content" >
-					<table class="layui-table" lay-skin="line">
+					<table class="layui-table" lay-skin="line" lay-size="lg">
+					<colgroup>
+					    <col width="100">
+					    <col width="200">
+					    <col>
+					  </colgroup>
 						<tbody class="layui-table-body">
 							<tr>
 								<td>课程名称：</td>
 								<td>
 									<label th:text="${currs.curriculumName}">Maven项目管理工具</label>
-									<input type="text" ></td>
+									<input type="text" name="curriculumName" th:value="${currs.curriculumName}" ></td>
 							</tr>
 							<tr>
 								<td>前台显示图片：</td>
 								<td><label ><img th:src="@{images/upload/curriculum/{img}(img=${currs.curriculumImg})}" ></label>
-									<input type="text" ></td>
+									<input type="file" name="file"  ></td>
 							</tr>
 							<tr>
 								<td>面向人群：</td>
-								<td><label th:if="${currs.curriculumMemberId} eq 1">免费</label>
-								<label th:if="${currs.curriculumMemberId} eq 2">会员</label>
-									<input type="text"  ></td>
+								<td th:if="${currs.curriculumMemberId} eq 1"><label >免费
+								
+								</label>
+								<select class="dis" name="curriculumMemberId">
+										<option value="1" selected="selected">免费</option>
+										<option value="2">会员</option>
+									</select>
+									</td>
+									<td th:if="${currs.curriculumMemberId} eq 2">
+								<label>会员</label>
+									<select class="dis" name="curriculumMemberId">
+										<option value="1" >免费</option>
+										<option value="2"  selected="selected">会员</option>
+									</select>
+									</td>
 							</tr>
 							<tr>
 								<td>上传时间：</td>
 								<td><label th:text="${#dates.format(currs.curriculumTime,'yyyy-MM-dd HH:mm:ss')}">Maven项目管理工具</label>
-									<input type="text" ></td>
+									<input type="text" readonly="readonly" name="curriculumTime" th:value="${#dates.format(currs.curriculumTime,'yyyy-MM-dd HH:mm:ss')}" ></td>
 							</tr>
 							<tr>
 								<td>课程简介：</td>
 								<td><label th:text="${currs.curriculumDetails}">Maven项目管理工具</label>
-									<input type="text" ></td>
+									<textarea class="dis" rows="10" cols="30" name="curriculumDetails" th:text="${currs.curriculumDetails}"></textarea>
+									
+									</td>
 							</tr>
 							<tr>
 								<td>是否有回放：</td>
-								<td><label th:if="${currs.curriculumPlayback} eq 1">有</label>
-								<label th:if="${currs.curriculumPlayback} eq 2">无</label>
-									<input type="text" ></td>
+								<td  th:if="${currs.curriculumPlayback} eq 1"><label>有</label>
+								<select class="dis" name="curriculumPlayback">
+									<option selected="selected" value="${currs.curriculumPlayback}">有</option>
+									<option  value="${currs.curriculumPlayback}">无</option>
+								</select>
+								</td>
+								<td  th:if="${currs.curriculumPlayback} eq 2">
+								<label>无</label>
+									<select class="dis" name="curriculumPlayback">
+									<option  value="${currs.curriculumPlayback}">有</option>
+									<option selected="selected" value="${currs.curriculumPlayback}">无</option>
+								</select></td>
 							</tr>
 							<tr>
 								<td>课程类型：</td>
 								<td><label th:each="type:${types}" th:if="${type.curriculumId == currs.curriculumTypeId}" th:text="${type.curriculumName}">Maven项目管理工具</label>
-									<input type="text" ></td>
+										<select class="dis" name="curriculumTypeId">
+											<option th:each="type:${types}" th:if="${type.curriculumId == currs.curriculumTypeId}" selected="selected" th:text="${type.curriculumName}" th:value="${type.curriculumId}"></option>
+											<option th:each="type:${types}" th:if="${type.curriculumId != currs.curriculumTypeId}" th:value="${type.curriculumId}" th:text="${type.curriculumName}" ></option>
+										</select>
+									</td>
 							</tr>
 							<tr>
 								<td colspan="2">
-									<div class="layui-collapse" lay-accordion="" th:each="setSey:${currs.setSey}">
+									<div class="layui-collapse" lay-accordion="" th:each="setSey,set:${currs.setSey}">
 										<div class="layui-colla-item" >
-											<h2 class="layui-colla-title">课程体系</h2>
+											<h2 class="layui-colla-title" th:text="${setSey.curriculumSystemName}">课程体系</h2>
 											<div class="layui-colla-content">
 												<table class="layui-table" liy-skin="line">
 													<tbody class="layui-table-body">
 														<tr>
 															<td>体系名称</td>
-															<td><label th:text="${setSey.curriculumSystemName}">Maven项目管理工具</label>
-																<input type="text" /></td>
+															<td><label th:text="${setSey.curriculumSystemName}">Maven项目管理工具,</label>
+															<label th:text="${set.index}"></label>
+																<input type="text" th:value="${setSey.curriculumSystemName}" th:name="'stytems['+${set.index}+'].curriculumSystemName}'" /></td>
 														</tr>
 														<tr>
 															<td>节数</td>
 															<td><label th:text="${setSey.curriculumSystemSequence}">Maven项目管理工具</label>
-																<input type="text"></td>
+																<input type="text" th:value="${setSey.curriculumSystemSequence}" th:name="'stytems['+${set.index}+'].curriculumSystemSequence}'"></td>
 														</tr>
 														<tr>
 															<td colspan="2">
-																<div class="layui-collapse" lay-accordion="" th:each="setDas:${setSey.setDeta}">
+																<div class="layui-collapse" lay-accordion="" th:each="setDas,das:${setSey.setDeta}">
 																	<div class="layui-colla-item">
 																		<h2 class="layui-colla-title" th:text="${setDas.curriculumDetailsName}">第一小节</h2>
 																		<div class="layui-colla-content">
@@ -95,17 +163,17 @@
 																					<tr>
 																						<td>小节名称：</td>
 																						<td><label th:text="${setDas.curriculumDetailsName}">Maven项目管理工具</label>
-																							<input type="text"></td>
+																							<input type="text" th:value="${setDas.curriculumDetailsName}" th:name="'stytems['+${set.index}+'].details['+${das.index}+'].curriculumDetailsName'"></td>
 																					</tr>
 																					<tr>
 																						<td>小节直播时间：</td>
 																						<td><label th:text="${setDas.curriculumDetailsTime}">Maven项目管理工具</label>
-																							<input type="text"></td>
+																							<input type="text" th:value="${setDas.curriculumDetailsTime}" th:name="'stytems['+${set.index}+'].details['+${das.index}+'].curriculumDetailsTime'"></td>
 																					</tr>
 																					<tr>
 																						<td>回放路径：</td>
 																						<td><label th:text="${setDas.curriculumDetailsPlayback}">Maven项目管理工具</label>
-																							<input type="text"></td>
+																							<input type="file" th:name="file"></td>
 																					</tr>
 																				</tbody>
 																			</table>
@@ -122,14 +190,16 @@
 								</td>
 							</tr>
 							<tr>
-								<td colspan="2">
-									<button class="layui-btn" onclick="qing()">修改</button>
+								<td colspan="2" style="text-align: center;">
+									<button type="button" class="layui-btn">修改</button>
+									<button type="button"  class="layui-btn layui-btn-disabled">更新</button>
 								</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
+			</form>
 		</div>
 	</body>
 	<script>

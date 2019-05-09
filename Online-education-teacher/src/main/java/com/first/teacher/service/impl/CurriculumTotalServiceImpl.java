@@ -42,6 +42,12 @@ public class CurriculumTotalServiceImpl implements ICurriculumTotalServiceDao {
 
 	@Override
 	public CurriculumTotal getInfoByBean(CurriculumTotal curr) {
+
+//		List<CurriculumTotal> select = totalDao.select(curr);
+//		System.out.println(totalDao.selectOne(curr));
+
+		// System.out.println(totalDao.selectOne(curr).getClass().getName());
+		// CurriculumTotal selectOne = totalDao.selectOne(curr);
 		return totalDao.selectOne(curr);
 	}
 
