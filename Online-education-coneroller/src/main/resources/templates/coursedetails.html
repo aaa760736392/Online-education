@@ -5,7 +5,6 @@
 		<title>课程详情</title>
 		<link rel="stylesheet" th:href="@{layui-v2.4.5/layui/css/layui.css}" />
 		<link rel="stylesheet" th:href="@{css/coursedetails.css}" />
-		
 		<link rel="stylesheet" th:href="@{css/home.css}" />
 		<script th:src="@{js/jquery-1.12.4.min.1.js}"></script>
 		<script th:src="@{layui-v2.4.5/layui/layui.all.js}"></script>
@@ -16,11 +15,11 @@
 		<ul class="layui-nav layui-bg-green" id="layerDemo" lay-filter="">
 			<li class="layui-nav-item"><a href="#"><img src="img/logo.png" /></a></li>
 			<li class="layui-nav-item"><a href=""></a></li>
-			<li class="layui-nav-item"><a href="home.html">首页</a></li>
-			<li class="layui-nav-item"><a href="curriculum.html">课程</a></li>
+			<li class="layui-nav-item"><a href="home">首页</a></li>
+			<li class="layui-nav-item"><a href="cruus">课程</a></li>
 			<li class="layui-nav-item"><a href="">会员</a></li>
 			<li class="layui-nav-item"><a href="javascript:;">路线</a></li>
-			<li class="layui-nav-item"><a href="luntan.html">面试宝典</a></li>
+			<li class="layui-nav-item"><a href="baodian">面试宝典</a></li>
 			<li class="layui-nav-item"><a href=""></a></li>
 			<li class="layui-nav-item"><a href=""></a></li>
 			<li class="layui-nav-item"><a href=""></a></li>
@@ -34,12 +33,13 @@
 		        <div class="layui-card-header"><h2>课程介绍</h2></div>
 		        <div class="layui-card-body" id="cardbody">
 				    <div id="cardleft">
-				    	<img src="img/2.jpg" width="550px" height="350px" />
+				    	<img id="imgs" src="img/2.jpg" width="550px" height="350px" />
+						<video id="play"  autoplay="autoplay"  width="600px" height="400px" style="display: none;" controls="controls" ></video>
 				    </div>
 				    <div id="cardright">
 				    	<table>
 				    		<tr>
-				    			<td colspan="2"><h1>构建微服务架构聚合支付平台</h1></td>
+				    			<td colspan="2"><h2>构建微服务架构聚合支付平台</h2></td>
 				    		</tr>
 				    		<tr>
 				    			<td><i class="layui-icon layui-icon-read"></i>课时数 1</td>
@@ -122,7 +122,8 @@
 					  <div class="layui-colla-item">
 					    <h2 class="layui-colla-title">第一章 聚合支付平台简单介绍</h2>
 					    <div class="layui-colla-content">
-					      <i class="layui-icon layui-icon-video"></i> 第一节-构建聚合支付平台项目说明
+					      <a onclick="video(this)" ><i class="layui-icon layui-icon-video"></i> 第一节-构建聚合支付平台项目说明</a>
+						  <input type="hidden" value="video/第六节(Maven打包原理).mp4">
 					 	</div>
   				</div>
 
@@ -137,7 +138,7 @@
 	         	<h3>田瑞丰</h3>
 	        </div>
     </div>
-
+</div>
 
 		
 	</body>

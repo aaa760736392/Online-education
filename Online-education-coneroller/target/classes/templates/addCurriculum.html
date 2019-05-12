@@ -3,26 +3,26 @@
 <head>
 		<meta charset="UTF-8">
 			<title>Insert title here</title>
-		<link rel="stylesheet" th:href="@{layui-v2.4.5/layui/css/layui.css}" />
-		<script th:src="@{js/jquery-1.12.4.min.1.js}"></script>
-		<script th:src="@{layui-v2.4.5/layui/layui.all.js}"></script>
-		<script th:src="@{layui-v2.4.5/layui/layui.js}"></script>
+		<link rel="stylesheet" th:href="@{layui-v2.4.5/layui/css/layui.css}" href="layui-v2.4.5/layui/css/layui.css" />
+		<script th:src="@{js/jquery-1.12.4.min.1.js}" src="js/jquery-1.12.4.min.1.js"></script>
+		<script th:src="@{layui-v2.4.5/layui/layui.all.js}" src="layui-v2.4.5/layui/layui.all.js"></script>
+		<script th:src="@{layui-v2.4.5/layui/layui.js}" src="layui-v2.4.5/layui/layui.js"></script>
 </head>
 <body>
-		<form action="sts"  method="post" enctype="multipart/form-data">
+		<form action="sts" class="layui-form"  method="post" enctype="multipart/form-data">
 		<table class="layui-table">
 			<tbody class="layui-table-body">
 				<tr>
 					<td>课程名称</td>
-					<td><input type="text" name="curriculumName" /></td>
+					<td><input type="text" class="layui-input" name="curriculumName" /></td>
 				</tr>
 				<tr>
 					<td>介绍图片</td>
-					<td><input type="file" name="file" accept="image/*"></td>
+					<td><input type="file" class="layui-file" name="file" accept="image/*"></td>
 				</tr>
 				<tr>
 					<td>面向人群</td>
-					<td><select name="curriculumMemberId" class="">
+					<td><select name="curriculumMemberId" lay-verify="" class="">
 							<option value="1" selected="selected">会员</option>
 							<option value="2">免费</option>
 						</select>
@@ -31,7 +31,7 @@
 				</tr>
 				<tr>
 					<td>课程介绍</td>
-					<td><textarea cols="30" rows="5" name="curriculumDetails"></textarea></td>
+					<td><textarea class="layui-textarea" cols="30" rows="5" name="curriculumDetails"></textarea></td>
 				</tr>
 				<tr>
 					<td>是否有回放</td>
@@ -97,15 +97,18 @@
 </form>
 		<script>
 			$(function() {
+				
+				$("input[type=text]").attr("class","layui-input");
+				
 				$("#stytems").click(function() {
 					var val = $("#stytemMake").val();
 					alert(val);
-					var tr = "<tr><td>章节名称</td><td><input type='text' name='stytems[" + (parseInt(val)+1) +
+					var tr = "<tr><td>章节名称</td><td><input type='text' class='layui-input' name='stytems[" + (parseInt(val)+1) +
 						"].curriculumSystemName' /></td></tr><tr><td>节数</td>" +
-						"<td><input type='text' name='stytems[" + (parseInt(val)+1) +
+						"<td><input type='text' class='layui-input' name='stytems[" + (parseInt(val)+1) +
 						"].curriculumSystemSequence' /></td></tr><tr class='layui-collapse'>" +
 						"<td colspan='2' class='layui-colla-item'><h2 class='layui-colla-title'>章节详情</h2><div class='layui-colla-content'>" +
-						"<table class='layui-table'><tbody class='layui-table-body'><tr><td>小节名称</td><td><input type='text' name='stytems["+(parseInt(val)+1)+"].details[0].curriculumDetailsName' /></td></tr><tr><td>直播时间</td><td><div class='layui-input-inline'><input type='text' class='layui-input' name='stytems["+(parseInt(val)+1)+"].details[0].curriculumDetailsTime' placeholder='yyyy-MM-dd HH:mm:ss'></div></td></tr></tbody></table>" +
+						"<table class='layui-table'><tbody class='layui-table-body'><tr><td>小节名称</td><td><input type='text'class='layui-input' name='stytems["+(parseInt(val)+1)+"].details[0].curriculumDetailsName' /></td></tr><tr><td>直播时间</td><td><div class='layui-input-inline'><input type='text' class='layui-input' name='stytems["+(parseInt(val)+1)+"].details[0].curriculumDetailsTime' placeholder='yyyy-MM-dd HH:mm:ss'></div></td></tr></tbody></table>" +
 						"<button name='details' type='button' onclick='detaclick(this)' class='layui-btn layui-btn-fluid'>新增一行</button><input type='hidden' value='1' /></div></td></tr>";
 					$("#stytem").append(tr);
 					$("#stytemMake").val(parseInt(val) + 1);
@@ -116,7 +119,7 @@
 				var val = $(i).prev();
 				var index = $(i).next().val();
 				var vals = $("#stytemMake").val();
-				var tr ="<tr><td colspan='2'><hr class='layui-bg-green' /></td></tr><tr><td>小节名称</td><td><input type='text' name='stytems["+parseInt(vals)+"].details["+parseInt(index)+"].curriculumDetailsName' /></td></tr><tr><td>直播时间</td><td><input type='text' class='layui-input' name='stytems["+parseInt(vals)+"].details["+parseInt(index)+"].curriculumDetailsTime' placeholder='yyyy-MM-dd HH:mm:ss'></td></tr>";
+				var tr ="<tr><td colspan='2'><hr class='layui-bg-green' /></td></tr><tr><td>小节名称</td><td><input type='text' class='layui-input' name='stytems["+parseInt(vals)+"].details["+parseInt(index)+"].curriculumDetailsName' /></td></tr><tr><td>直播时间</td><td><input type='text' class='layui-input' name='stytems["+parseInt(vals)+"].details["+parseInt(index)+"].curriculumDetailsTime' placeholder='yyyy-MM-dd HH:mm:ss'></td></tr>";
 				$(i).next().val(parseInt(index)+1);
 				val.append(tr);
 			}
@@ -128,6 +131,15 @@
 					layer.msg('展开状态：' + data.show);
 				});
 			});
+			
+			
+			
+			
+			layui.use('form', function(){
+				  var form = layui.form;
+				  
+				  //各种基于事件的操作，下面会有进一步介绍
+				});
 		</script>
 </body>
 </html>

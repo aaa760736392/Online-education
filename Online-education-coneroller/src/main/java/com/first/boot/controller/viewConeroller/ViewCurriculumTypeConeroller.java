@@ -52,4 +52,20 @@ public class ViewCurriculumTypeConeroller {
 		return "PersonalCenter";
 	}
 
+	@GetMapping("cruus")
+	public String ss() {
+		return "curriculum";
+	}
+
+	@GetMapping("baodian")
+	public String so() {
+		return "luntan";
+	}
+
+	@GetMapping("us")
+	public String us() {
+
+		return "PersonalCenter";
+	}
+
 }

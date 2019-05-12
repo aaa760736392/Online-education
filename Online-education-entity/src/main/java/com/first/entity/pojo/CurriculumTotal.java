@@ -1,7 +1,6 @@
 package com.first.entity.pojo;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -46,7 +45,7 @@ public class CurriculumTotal implements Serializable {
 	 * 时间
 	 */
 	@Column(name = "curriculum_time")
-	private Date curriculumTime;
+	private String curriculumTime;
 
 	/**
 	 * 课程介绍
@@ -189,7 +188,7 @@ public class CurriculumTotal implements Serializable {
 	 *
 	 * @return curriculum_time - 时间
 	 */
-	public Date getCurriculumTime() {
+	public String getCurriculumTime() {
 		return curriculumTime;
 	}
 
@@ -198,7 +197,7 @@ public class CurriculumTotal implements Serializable {
 	 *
 	 * @param curriculumTime 时间
 	 */
-	public void setCurriculumTime(Date curriculumTime) {
+	public void setCurriculumTime(String curriculumTime) {
 		this.curriculumTime = curriculumTime;
 	}
 

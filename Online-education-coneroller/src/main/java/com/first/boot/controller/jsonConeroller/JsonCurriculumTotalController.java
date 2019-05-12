@@ -54,7 +54,7 @@ public class JsonCurriculumTotalController {
 		try {
 			curr.setCurriculumImg(time + sname);
 			curr.setCurriculumBrowse(0);
-			curr.setCurriculumTime(new Date());
+			curr.setCurriculumTime(new Date().toString());
 			// UserLogin user = (UserLogin) session.getAttribute("admin");
 			curr.setCurriculumUserId(1);
 			int addCourse = gathService.addCourse(curr);
